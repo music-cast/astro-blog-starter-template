@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+	<rect width="1200" height="630" fill="#060608" />
+	<rect x="120" y="255" width="34" height="120" rx="8" fill="#ff00ff" />
+	<rect x="176" y="165" width="34" height="210" rx="8" fill="#ff00ff" />
+	<rect x="232" y="210" width="34" height="165" rx="8" fill="#ff00ff" />
+	<text x="300" y="335" font-family="Arial, sans-serif" font-size="88" font-weight="700" fill="#ffffff">MusicCast</text>
+	<text x="300" y="385" font-family="Arial, sans-serif" font-size="30" fill="#a0a0aa">White-label music distribution</text>
+</svg>

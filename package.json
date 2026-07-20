@@ -1,8 +1,8 @@
 {
-	"name": "astro-blog-starter-template",
-	"description": "Build a personal website, blog, or portfolio with Astro.",
+	"name": "mc-website",
+	"description": "Official marketing website for MusicCast, the white-label music distribution platform.",
 	"cloudflare": {
-		"label": "Astro Framework Starter",
+		"label": "MusicCast Website",
 		"products": [
 			"Workers"
 		],

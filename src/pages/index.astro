@@ -3,48 +3,224 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const LOGIN_URL = 'https://app.musicca.st/login';
+
+const features = [
+	{
+		title: 'Full catalog management',
+		body: 'Releases, artists, and labels in one system of record, with fast search and role-based access for every member of your team.',
+	},
+	{
+		title: 'Guided release wizard',
+		body: 'A four-step release builder with Spotify metadata import and audio fingerprinting, so duplicate audio and ISRC conflicts get caught before anything ships.',
+	},
+	{
+		title: 'QC + AI-assisted review',
+		body: 'Every release runs through a review queue backed by automated AI pre-checks, flagging problems before a human ever opens the release.',
+	},
+	{
+		title: 'Real DDEX delivery',
+		body: 'ERN-based delivery straight to your aggregator and direct DSPs, with automatic UPC/ISRC issuance and delivery status tracked end to end — no silent failures.',
+	},
+	{
+		title: 'White-label, multi-tenant',
+		body: 'Every distributor gets an isolated, branded workspace: its own domain, its own database, its own users.',
+	},
+	{
+		title: 'Customer portals',
+		body: 'Give labels and artists scoped logins to manage only their own catalog, with granular per-section permissions you control.',
+	},
+];
+
+const steps = [
+	{ n: '01', title: 'Add your catalog', body: 'Bring in labels, artists, and existing releases.' },
+	{ n: '02', title: 'Build a release', body: 'Guided wizard with metadata import and audio checks.' },
+	{ n: '03', title: 'Review & deliver', body: 'QC queue and AI pre-review, then real DDEX delivery.' },
+	{ n: '04', title: 'Track it live', body: 'See delivery and channel status in one place.' },
+];
+
+const integrations = ['Spotify', 'ACRCloud', 'DDEX', 'Zendesk', 'Claude AI'];
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`${SITE_TITLE} — White-label music distribution`} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero section">
+				<span class="eyebrow">Music distribution infrastructure</span>
+				<h1>The distribution platform built for labels and their artists</h1>
+				<p class="lede">
+					MusicCast gives distributors one white-labeled workspace to manage catalog, review
+					releases, and deliver to every DSP — with your labels and artists logged in under your
+					own brand.
+				</p>
+				<div class="hero-ctas">
+					<a class="btn btn-primary" href={LOGIN_URL}>Sign in to your workspace</a>
+					<a class="btn btn-ghost" href="#features">Explore the platform</a>
+				</div>
+			</section>
+
+			<section id="features" class="section">
+				<div class="section-head centered">
+					<span class="eyebrow">Platform</span>
+					<h2>Everything a distributor needs, in one place</h2>
+				</div>
+				<div class="grid">
+					{
+						features.map((f) => (
+							<div class="card">
+								<h3>{f.title}</h3>
+								<p>{f.body}</p>
+							</div>
+						))
+					}
+				</div>
+			</section>
+
+			<section id="how-it-works" class="section">
+				<div class="section-head centered">
+					<span class="eyebrow">How it works</span>
+					<h2>From catalog to delivered, in four steps</h2>
+				</div>
+				<div class="steps">
+					{
+						steps.map((s) => (
+							<div class="step">
+								<span class="step-n">{s.n}</span>
+								<h3>{s.title}</h3>
+								<p>{s.body}</p>
+							</div>
+						))
+					}
+				</div>
+			</section>
+
+			<section class="section integrations">
+				<div class="section-head centered">
+					<span class="eyebrow">Connected</span>
+					<h2>Works with the tools your releases already touch</h2>
+				</div>
+				<div class="badge-row">
+					{integrations.map((name) => <span class="badge">{name}</span>)}
+				</div>
+			</section>
+
+			<section class="section cta-banner">
+				<h2>Ready to run your distribution business on one platform?</h2>
+				<p>Bring your labels, artists, and catalog into a workspace built for real DDEX delivery.</p>
+				<a class="btn btn-primary" href={LOGIN_URL}>Sign in to your workspace</a>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.hero {
+		padding-top: 6em;
+		padding-bottom: 4.5em;
+		max-width: 780px;
+	}
+	.hero h1 {
+		margin-bottom: 0.4em;
+	}
+	.lede {
+		font-size: 1.2em;
+		max-width: 620px;
+	}
+	.hero-ctas {
+		display: flex;
+		gap: 1em;
+		flex-wrap: wrap;
+		margin-top: 1.5em;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5em;
+	}
+	.card {
+		padding: 1.75em;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		border-radius: 16px;
+		background: rgba(255, 255, 255, 0.02);
+		transition: border-color 0.15s ease, transform 0.15s ease;
+	}
+	.card:hover {
+		border-color: rgba(255, 0, 255, 0.4);
+		transform: translateY(-2px);
+	}
+	.card h3 {
+		margin-bottom: 0.5em;
+	}
+	.card p {
+		margin-bottom: 0;
+		font-size: 0.95em;
+	}
+
+	.steps {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5em;
+	}
+	.step-n {
+		display: block;
+		font-weight: 700;
+		font-size: 1.4em;
+		color: #ff00ff;
+		margin-bottom: 0.3em;
+	}
+	.step p {
+		font-size: 0.95em;
+	}
+
+	.integrations .badge-row {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.9em;
+	}
+	.badge {
+		padding: 0.6em 1.3em;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		color: rgb(220, 220, 226);
+		font-size: 0.95em;
+		font-weight: 700;
+	}
+
+	.cta-banner {
+		text-align: center;
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	.cta-banner .btn {
+		margin-top: 1.25em;
+	}
+
+	@media (max-width: 900px) {
+		.grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		.steps {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (max-width: 600px) {
+		.hero {
+			padding-top: 3.5em;
+		}
+		.grid {
+			grid-template-columns: 1fr;
+		}
+		.steps {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
